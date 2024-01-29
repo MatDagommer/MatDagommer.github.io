@@ -21,7 +21,7 @@ social: true # includes social icons at the bottom of the page
 
 Machine Learning Scientist.
 
-ESPCI Paris '22 | Columbia University '23.
+ESPCI Paris '22. Columbia University '23.
 
 My experience encompasses application of AI in biomedical imaging (Small Animal Imaging Lab, A. A. Martinos Center for Biomedical Imaging) and cheminformatics for drug discovery (Moderna, AbbVie).
 
