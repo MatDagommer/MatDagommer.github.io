@@ -1,12 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - MatDagommer
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - MatDagommer/mri-to-ct
+  - MatDagommer/tandem-genomics
+  - MatDagommer/molecular-dynamics
+  - MatDagommer/chemvae-torch
+  - MatDagommer/ddpm-mrs-2

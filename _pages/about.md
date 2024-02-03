@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://www.columbia.edu/'>Columbia University</a>
+subtitle: <a href='https://www.columbia.edu/'>Columbia University '23 </a>, <a href='https://www.espci.psl.eu/en/'>ESPCI Paris '22</a>
 
 profile:
   align: right
@@ -19,9 +19,16 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Machine Learning Scientist.
+Data Science Co-op @Moderna. 
 
-ESPCI Paris '22. Columbia University '23.
 
-My experience encompasses application of AI in biomedical imaging (Small Animal Imaging Lab, A. A. Martinos Center for Biomedical Imaging) and cheminformatics for drug discovery (Moderna, AbbVie).
+I am passionate about computational and data-driven solutions in the biomedical space.
 
+
+I combine my enthusiasm for machine learning with my interests in biomedical science, biomedical imaging, signal processing and drug discovery.
+
+
+My background in applied physics gave me a strong appetence for uncertainty quantification, which makes me a big fan of Bayesian methods today.
+
+
+I am currently learning to use graph neural networks in cheminformatics to perform molecular property prediction and molecule generation.
