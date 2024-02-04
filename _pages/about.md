@@ -19,10 +19,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Data Science Co-op @Moderna. 
-
-
-I am passionate about computational and data-driven solutions in the biomedical space.
+**Data Science Co-op @Moderna.**
 
 
 I combine my enthusiasm for machine learning with my interests in biomedical science, biomedical imaging, signal processing and drug discovery.
