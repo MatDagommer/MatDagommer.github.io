@@ -31,6 +31,42 @@
       "endDate": "2023-12-15",
       "summary": "",
       "highlights": ["Machine Learning", "Cheminformatics", "mRNA"]
+    },
+    {
+      "name": "Columbia University",
+      "position": "Research Assistant",
+      "url": "",
+      "startDate": "2023-01-15",
+      "endDate": "2023-07-04",
+      "summary": "",
+      "highlights": ["Machine Learning", "Signal Processing", "Denoising", "MRS"]
+    },
+    {
+      "name": "Harvard Medical School",
+      "position": "Research Assistant",
+      "url": "",
+      "startDate": "2022-05-03",
+      "endDate": "2022-07-28",
+      "summary": "",
+      "highlights": ["Deep Learning", "MRI", "Neuromodulation"]
+    },
+    {
+      "name": "EssilorLuxottica",
+      "position": "Intern",
+      "url": "",
+      "startDate": "2021-07-04",
+      "endDate": "2021-12-17",
+      "summary": "",
+      "highlights": ["Glass Tinting", "Simulation", "Optimization"]
+    },
+    {
+      "name": "Geosophy",
+      "position": "Research and Development Engineer",
+      "url": "",
+      "startDate": "2020-10-08",
+      "endDate": "2020-12-15",
+      "summary": "",
+      "highlights": ["Geothermal Energy", "Simulation", "Python"]
     }
   ],
   "volunteer": [
@@ -48,13 +84,35 @@
     {
       "institution": "Columbia University",
       "location": "New York, United States",
-      "url": "",
+      "url": "https://www.columbia.edu/",
       "area": "Biomedical Engineering",
       "studyType": "MS",
       "startDate": "2022-08-26",
       "endDate": "2023-12-22",
       "score": "4.08/4.33",
       "courses": ["Machine Learning", "Bayesian Statistics", "Functional Genomics", "Magnetic Resonance Imaging", "Computational Neuroscience", "Computational Modeling", "Biomedical Innovation"]
+    },
+    {
+      "institution": "ESPCI Paris - PSL",
+      "location": "Paris, France",
+      "url": "https://www.espci.psl.eu/en/",
+      "area": "Physique-Chimie",
+      "studyType": "Diplôme d'ingénieur",
+      "startDate": "2019-09-01",
+      "endDate": "2022-09-01",
+      "score": "3.9/4.0",
+      "courses": ["Wave Physics", "Quantum Mechanics", "Statistical Physics", "Solid-state Physics", "Continuum Mechanics", "Partial Differential Equations", "Complex Analysis", "Statistics and Modeling", "Signal Processing", "Electronics", "Optics", "Organic Chemistry", "Inorganic Chemistry", "Analytical Chemistry", "Group Theory in Chemistry", "Crystalline Materials", "Physiology", "Biochemistry", "Cellular Biology", "Biomedical Imaging"]
+    },
+    {
+      "institution": "IUT A de Lille",
+      "location": "Villeneuve-d'Ascq, France",
+      "url": "https://iut.univ-lille.fr/",
+      "area": "Mesures Physiques",
+      "studyType": "Diplôme Universitaire de Technologie (DUT)",
+      "startDate": "2017-09-01",
+      "endDate": "2019-09-01",
+      "score": "4.0/4.0",
+      "courses": ["Analysis", "Algebra", "Thermodynamics", "Mechanics", "Electronics", "Optics", "General Chemistry", "Analytical Chemistry", "Metrology"]
     }
   ],
   "awards": [
@@ -127,6 +185,15 @@
       "keywords": [
         "MRI",
         "MRS"
+      ]
+    },
+    {
+      "name": "Cheminformatics",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "RDKit",
+        "Chemprop",
+        "DeepChem"
       ]
     }
   ],
