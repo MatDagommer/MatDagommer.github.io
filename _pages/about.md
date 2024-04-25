@@ -21,4 +21,4 @@ social: true # includes social icons at the bottom of the page
 
 **ML scientist @AbbVie.**
 
-I use machine learning to solve problems in the drug discovery space.
+I build tools to help chemists discover new drugs.
