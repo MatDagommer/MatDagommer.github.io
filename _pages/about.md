@@ -19,13 +19,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-**Data Science Co-op @Moderna.**
+**ML scientist @AbbVie.**
 
-
-I combine my enthusiasm for machine learning with my interests in biomedical science, biomedical imaging, signal processing and drug discovery.
-
-
-My background in applied physics gave me a strong appetence for uncertainty quantification, which makes me a big fan of Bayesian methods today.
-
-
-I am currently learning to use graph neural networks in cheminformatics to perform molecular property prediction and molecule generation.
+I use machine learning to solve problems in the drug discovery space.
