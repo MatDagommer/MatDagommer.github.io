@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Decision trees
+title: Decision trees in 3 minutes
 date: 2024-04-25 15:09:00
 description: a note for myself on how decision trees work.
 tags: formatting code
@@ -14,9 +14,7 @@ although decision trees have been around forever, I never felt the urge of learn
 - Implementation of decision trees with the Python scikit-learn, is easy and high-level.
 - Although I did train decision trees to benchmark projects, I never thought of it as a go-to model.
 
-I did try to learn about them briefly during that time, of course, but never took the time to sit and learn properly. The videos and articles I came across were either too high-level or focus on how inference works with a tree, but not how the tree actually gets built during training.
-
-In this short post, I try to describe the training process of a decision tree in an accessible language, as a reference for myself and for folks looking for a concise, yet technical explanation.
+I did try to learn about them briefly during that time, of course, but never took the time to sit and learn properly. Well, I finally did! In this short post, I try to describe the training process of a decision tree in an accessible language, as a reference for myself and for folks looking for a concise, yet technical explanation.
 
 I. The tree structure
 
@@ -24,7 +22,9 @@ I'm sure you've encountered tree structures before, and they're fairly easy to m
 
 At every node (nodes represent stages at which data gets sorted) of the tree, we want to separate the training data into different groups in a fashion that allows us to retrieve more homogeneous subsets at every step. In the case of regression, this means grouping training points with similar target values. In the case of classification, this means grouping points with similar classes. In order to determine what feature will be used as a criteria for the separation, and what threshold will be used, the algorithm loops through all possible (feature, threshold) combinations and chooses the best one based on a criterion metric (information gain, Gini impurity, variance reduction). This criterion metrics assess if the two subgroups are more homogeneous than the initial group.
 
-Without diving into too much details, Gini and information gain can be used for assessing this in the case of classification problems, while variance reduction is designed for regression problems. The conclusion is: we have an objective, quantitative way of assessing what (feature, threshold) combination returns the most information. I leave you with this intuition, but I encourage you to check the math behind these metrics!
+Let's take the information gain as an example: 
+
+Without diving into too much details, Gini and information gain can be used for assessing this in the case of classification problems, while variance reduction is designed for regression problems. The conclusion is: we have objective, quantitative ways of assessing what (feature, threshold) combination returns the most information at each node. I leave you with this intuition, but I encourage you to check the math behind these metrics!
 
 What about cases where there are more than 2 branches? Usually, one can set a maximum number of leaves per node. The algorithm proceeds the same way, but the loop depth increases (feature, threshold_1, threshold_2, ..., threshold_n) combinations and find the one that returns the maximum information gain. 
 
