@@ -21,4 +21,4 @@ social: true # includes social icons at the bottom of the page
 
 **ML scientist @AbbVie.**
 
-I build tools to help chemists discover new drugs.
+I build tools that help chemists discover new drugs.
