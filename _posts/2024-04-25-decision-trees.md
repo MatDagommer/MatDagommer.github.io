@@ -18,6 +18,8 @@ I did try to learn about them briefly during that time, of course, but never too
 
 I. The tree structure
 
+{% include figure.liquid path="assets/img/9.jpg" class="img-fluid rounded z-depth-1" %}
+
 I'm sure you've encountered tree structures before, and they're fairly easy to make sense of when presented in that format: take your input, and depending on its features, follow the path. Boom. Your output is either a class (classification), or value (regression). Straightforward. But this tree is just one tree among a myriad of possibilities, and I could come up with an infinity of combinations: why not sort wines based on their acidity instead of their alcohol content? Why not change the threshold to 0.4 instead of 0.6? What decided that structure? Let's break it down:
 
 At every node (nodes represent stages at which data gets sorted) of the tree, we want to separate the training data into different groups in a fashion that allows us to retrieve more homogeneous subsets at every step. In the case of regression, this means grouping training points with similar target values. In the case of classification, this means grouping points with similar classes. In order to determine what feature will be used as a criteria for the separation, and what threshold will be used, the algorithm loops through all possible (feature, threshold) combinations and chooses the best one based on a criterion metric (information gain, Gini impurity, variance reduction). This criterion metrics assess if the two subgroups are more homogeneous than the initial group.
