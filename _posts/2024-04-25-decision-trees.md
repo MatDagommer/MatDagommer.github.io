@@ -22,7 +22,7 @@ I. The tree structure
 
 I'm sure you've encountered tree structures before, and they're fairly easy to make sense of when presented in that format: take your input, and depending on its features, follow the path. Boom. Your output is either a class (classification), or value (regression). Straightforward. 
 
-{% include figure.liquid path="assets/img/decision_tree.jpg" class="img-fluid rounded z-depth-1" %}
+{% include figure.liquid path="assets/img/decision_tree.png" class="img-fluid rounded z-depth-1" %}
 
 But this tree is just one tree among a myriad of possibilities, and I could come up with an infinity of combinations: why not sort wines based on their acidity instead of their alcohol content? Why not change the threshold to 0.4 instead of 0.6? What decided that structure? Let's break it down:
 
