@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Decision trees
-date: 2015-07-15 15:09:00
+date: 2024-04-25 15:09:00
 description: a note for myself on how decision trees work.
 tags: formatting code
 categories: sample-posts
