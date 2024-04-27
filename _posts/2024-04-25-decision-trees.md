@@ -8,8 +8,9 @@ categories: ML
 featured: true
 ---
 
-After 2 years of doing projects in the machine learning space, I realized I didn't know how decision tree models actually worked:
-although decision trees have been around forever (on the scale of ML history), I never felt the urge of learning the inner working for several reasons:
+{% include figure.liquid path="assets/img/9.jpg" class="img-fluid rounded z-depth-1" %}
+
+After 2 years of doing projects in the machine learning space, I realized I didn't know how decision tree models actually worked. I never felt the urge of learning the inner working for several reasons:
 - My early ML classes focused on differentiable models (Andrew Ng).
 - Implementation of decision trees with the Python scikit-learn, is very easy and high-level.
 - Although I trained decision trees as benchmarks, I never thought of them as a go-to models.
@@ -18,44 +19,35 @@ Well, I (finally) decided to take a good look! In this short post, I try to desc
 
 I. The tree structure
 
-{% include figure.liquid path="assets/img/9.jpg" class="img-fluid rounded z-depth-1" %}
-
-I'm sure you've encountered tree structures before, and they're fairly easy to make sense of when presented in that format: take your input, and depending on its features, follow the path. Boom. Your output is either a class (classification), or value (regression). Straightforward. 
-
 {% include figure.liquid path="assets/img/decision_tree.png" class="img-fluid rounded z-depth-1" %}
 
-But this tree is just one tree among a myriad of possibilities, and I could come up with an infinity of combinations: why not sort wines based on their acidity instead of their alcohol content? Why not change the threshold to 0.4 instead of 0.6? What decided that structure? Let's break it down:
+I'm sure you've encountered tree structures before, and they're fairly easy to make sense of when presented in that format: take your input, and depending on its features (alcohol content, sulfur dioxide content), follow the path. Boom. Your output (in this case, your wine quality) is predicted to be a 6 (good) or a 5 (less good). Straightforward. 
 
-At every node (nodes represent stages at which data gets sorted) of the tree, we want to separate the training data into different groups in a fashion that allows us to retrieve more homogeneous subsets at every step. In the case of regression, this means grouping training points with similar target values. In the case of classification, this means grouping points with similar classes. In order to determine what feature will be used as a criteria for the separation, and what threshold will be used, the algorithm loops through all possible (feature, threshold) combinations and chooses the best one based on a criterion metric (information gain, Gini impurity, variance reduction). This criterion metrics assess if the two subgroups are more homogeneous than the initial group.
+But this tree is just one tree among a myriad of possibilities, and I could come up with an infinity of combinations: why not sort wines based on their density instead of their alcohol content at the root node? Why not change the threshold to 2.120 instead of 10.525? What decided that structure? Let's break it down:
+
+At every node (nodes represent stages at which data gets sorted) of the tree, we want to separate the training data into different groups in a fashion that allows us to retrieve more homogeneous subsets (in terms of their target variable) at every step. In the case of classification (resp. regression), this means that training points with similar labels (resp., target values) tend to get sorted in the same subset.
+
+In order to determine what feature will be used to separate the data, and what threshold will be used, the algorithm loops through all possible (feature, threshold) combinations, computes a criterion metric (information gain, Gini impurity, variance reduction) every time and picks the combination that optimizes that metric. This criterion metrics assess how much the separation homogenized the new subsets with respect to the initial one.
 
 Let's take the information gain as an example: 
 
-Without diving into too much details, Gini and information gain can be used for assessing this in the case of classification problems, while variance reduction is designed for regression problems. The conclusion is: we have objective, quantitative ways of assessing what (feature, threshold) combination returns the most information at each node. I leave you with this intuition, but I encourage you to check the math behind these metrics!
+Without diving into too much details, the information gain is a metric used in classification problems, which works well with the wine quality dataset (wines are classified into 6 quality categories: 3, 4, 5, 6, 7, and 8). If you're a bit familiar with Shannon's entropy (\[ H(X) = - \sum_{i} p_i \log_{2}(p_i) \]), it's fairly easy to understand:
 
-What about cases where there are more than 2 branches? Usually, one can set a maximum number of leaves per node. The algorithm proceeds the same way, but the loop depth increases (feature, threshold_1, threshold_2, ..., threshold_n) combinations and find the one that returns the maximum information gain. 
+\[ IG = H(X) - H(X_1) - H(X_2) \], where $X$, $X_1$ and $X_2$ represent the initial dataset, first and second subsets. We gain information when the entropies of subsets 1 and 2 are lower than the entropy of the dataset before separation. In other words, the distribution of points in these subsets is concentrated around one class.
 
-What about categorical features? In the case of categorical features, we loop through the categories instead of threshold values: (feature, cat U not(cat)). 
+So with information gain, we have a quantitative ways of assessing what (feature, threshold) combination returns the most informative separation at each node. I leave you with this intuition, but I encourage you to check the math behind the other metrics as well!
 
-What about continuous features: there could be an infinite number of thresholds to loop through!
+If you keep doing that process at every node, you'll end up with a beautiful tree structure. Now, there are hyperparameters you can adjust to restrict the arborescence of the tree and avoid overfitting. Setting a maximum depth, and setting a minimum information gain are ways to go. 
 
-What about the depth?
+II. Inference
 
-Models based on decision trees:
+Inference consist in running your sample from the root node to until it reaches terminal node. For classification, we typically classify the sample in the class that is the most represented in the corresponding training subset. If the majority of training points are from class 6, the test point gets attributed the class 6. For regression, we would take the average of training points' target value as the predicted value.
 
-Random forests:
-XGBoost:
+In the wine quality dataset, features are continuous (alcohol content, total sulfur dioxide content...). But we could have features that are categorical (e.g., color). In that case, we would loop through every (feature, feature category) combinations. 
 
-Features
-Structure
-Criterion
-Gini
-Variance Reduction
-Leaves
-Nodes
-Constraints
+This is the code I used to generate the figure:
 
-
-{% highlight c++ linenos %}
+{% highlight python linenos %}
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
