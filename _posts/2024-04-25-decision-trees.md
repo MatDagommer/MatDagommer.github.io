@@ -17,7 +17,7 @@ After 2 years of doing projects in the machine learning space, I realized I didn
 
 Well, I (finally) decided to take a good look! In this short post, I try to describe the training process of a decision tree in an accessible language, as a reference for myself and for folks looking for a concise, yet technical explanation.
 
-I. The tree structure
+**I. The tree structure**
 
 {% include figure.liquid path="assets/img/decision_tree.png" class="img-fluid rounded z-depth-1" %}
 
@@ -31,10 +31,10 @@ In order to determine what feature will be used to separate the data, and what t
 
 Let's take the information gain as an example: 
 
-Without diving into too much details, the information gain is a metric used in classification problems, which works well with the wine quality dataset (wines are classified into 6 quality categories: 3, 4, 5, 6, 7, and 8). If you're a bit familiar with Shannon's entropy ($$ H(X) = - \sum_{i} p_i \log_{2}(p_i) $$), it's fairly easy to understand:
+Without diving into too much details, the information gain is a metric used in classification problems, which works well with the wine quality dataset (wines are classified into 6 quality categories: 3, 4, 5, 6, 7, and 8). If you're a bit familiar with Shannon's entropy ($$ H = - \sum_{i} p_i \log_{2}(p_i) $$), it's fairly easy to understand:
 
 $$
-IG = H(X) - H(X_1) - H(X_2)
+IG = H_X - H_{X_1} - H_{X_2}
 $$
 
 where $$X$$, $$X_1$$ and $$X_2$$ represent the initial dataset, first and second subsets. We gain information when the entropies of subsets 1 and 2 are lower than the entropy of the dataset before separation. In other words, the distribution of points in these subsets is concentrated around one class.
@@ -43,7 +43,7 @@ So with information gain, we have a quantitative ways of assessing what (feature
 
 If you keep doing that process at every node, you'll end up with a beautiful tree structure. Now, there are hyperparameters you can adjust to restrict the arborescence of the tree and avoid overfitting. Setting a maximum depth, and setting a minimum information gain are ways to go. 
 
-II. Inference
+**II. Inference**
 
 Inference consist in running your sample from the root node to until it reaches terminal node. For classification, we typically classify the sample in the class that is the most represented in the corresponding training subset. If the majority of training points are from class 6, the test point gets attributed the class 6. For regression, we would take the average of training points' target value as the predicted value.
 
