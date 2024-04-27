@@ -31,9 +31,13 @@ In order to determine what feature will be used to separate the data, and what t
 
 Let's take the information gain as an example: 
 
-Without diving into too much details, the information gain is a metric used in classification problems, which works well with the wine quality dataset (wines are classified into 6 quality categories: 3, 4, 5, 6, 7, and 8). If you're a bit familiar with Shannon's entropy (\[ H(X) = - \sum_{i} p_i \log_{2}(p_i) \]), it's fairly easy to understand:
+Without diving into too much details, the information gain is a metric used in classification problems, which works well with the wine quality dataset (wines are classified into 6 quality categories: 3, 4, 5, 6, 7, and 8). If you're a bit familiar with Shannon's entropy ($$ H(X) = - \sum_{i} p_i \log_{2}(p_i) $$), it's fairly easy to understand:
 
-\[ IG = H(X) - H(X_1) - H(X_2) \], where $X$, $X_1$ and $X_2$ represent the initial dataset, first and second subsets. We gain information when the entropies of subsets 1 and 2 are lower than the entropy of the dataset before separation. In other words, the distribution of points in these subsets is concentrated around one class.
+$$
+IG = H(X) - H(X_1) - H(X_2)
+$$
+
+where $$X$$, $$X_1$$ and $$X_2$$ represent the initial dataset, first and second subsets. We gain information when the entropies of subsets 1 and 2 are lower than the entropy of the dataset before separation. In other words, the distribution of points in these subsets is concentrated around one class.
 
 So with information gain, we have a quantitative ways of assessing what (feature, threshold) combination returns the most informative separation at each node. I leave you with this intuition, but I encourage you to check the math behind the other metrics as well!
 
