@@ -37,7 +37,7 @@ $$
 IG = H_X - H_{X_1} - H_{X_2}
 $$
 
-where $$X$$, $$X_1$$ and $$X_2$$ represent the initial dataset, first and second subsets. We gain information when the entropies of subsets 1 and 2 are lower than the entropy of the dataset before separation. In other words, the distribution of points in these subsets is concentrated around one class.
+where $$X$$, $$X_1$$ and $$X_2$$ represent the initial dataset, first and second subsets. We gain information when the entropies of subsets 1 and 2 are lower than the entropy of the dataset before separation. In other words, the distribution of points in these subsets tends to be more concentrated around one class compared to the previous dataset's distribution.
 
 So with information gain, we have a quantitative ways of assessing what (feature, threshold) combination returns the most informative separation at each node. I leave you with this intuition, but I encourage you to check the math behind the other metrics as well!
 
