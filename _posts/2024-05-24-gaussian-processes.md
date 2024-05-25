@@ -35,7 +35,7 @@ P(Y | X) \sim \mathcal{N}(\mu, \Sigma)
 $$
 
 ### Covariance Matrix and Kernel Trick
-The Gaussian distribution assumption is reasonable and we'll go on with it. Now here's the trick: not only do we assume that the training set follows a Gaussian distribution, we also assume that the combination of the training points and the test points also follow a Gaussian distribution:
+The Gaussian distribution assumption is reasonable and we'll go on with it. Now here's the trick: not only do we assume that the training set follows a Gaussian distribution, we also assume that the combination of the training points and the test points also follow a multivariate Gaussian distribution:
 
 $$
 \begin{bmatrix}
@@ -85,6 +85,10 @@ By choosing an appropriate kernel function that correctly captures the similarit
 $$
 P(Y^* | X^*, X, Y) \sim \mathcal{N}(K_{X^*, X} K_{X, X}^{-1} Y, K_{X^*, X^*} - K_{X^*, X} K_{X, X}^{-1} K_{X, X^*})
 $$
+
+### Some intuition
+
+What's important to understand at this point is that candidate "functions" that model our data can be sampled from the joint distribution. I used quote marks here because we don't retrieve a function per se, but rather a set of what the true values could look like for the different $$x$$ values. If I have 20 points in my training set, I am basically sampling one vector from a 20-dimnensional Gaussian distribution. This is well explained in this short [paper](https://arxiv.org/pdf/2009.10862).
 
 ### Hyperparameter Optimization
 
