@@ -78,7 +78,7 @@ $$
 
 “But why the heck are we customizing the covariance matrix?” 
 
-Well, there is no way we can come up with a meaningful covariance matrix given our current dataset. What would it even mean to compute a variance between $$y_1$$ and $$y_n$$? They're single observations! However, we can use a kernel function to compute the similarity between the corresponding input values. And in return, these can lead to a surrogate to the covariance matrix in the joint distribution that captures this simple idea: if two input values $$x$$ and $$x'$$ are similar, then the associated output values $$y$$ and $$y'$$ that should be similar too! The best way to grasp this is to take a look at a slice from a 2D-Gaussian distribution where the two components are correlated. If one moves, the other moves, hence the high "covariance".
+Well, there is no way we can come up with a meaningful covariance matrix given our current dataset. What would it even mean to compute a variance between $$y_1$$ and $$y_n$$? They're single observations! However, we can use a kernel function to compute the similarity between the corresponding input values. And in return, these can lead to a surrogate to the covariance matrix in the joint distribution that captures this simple idea: if two input values $$x$$ and $$x'$$ are similar, then the associated output values $$y$$ and $$y'$$ that should be similar too! The best way to grasp this is to take a look at a slice from a 2D-Gaussian distribution where the two components are correlated. If one moves, the other moves too, hence the high "covariance".
 
 By choosing an appropriate kernel function that correctly captures the similarity between input values, we should retrieve a nice joint distribution. Now, we need to derive the conditional distribution of the test point we want to infer. Here’s the formula, I’m sparing myself the math:
 
@@ -88,7 +88,7 @@ $$
 
 ### Hyperparameter Optimization
 
-The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood $$log P(Y|X,\beta)$$ (it's almost the same multivariate distribution we used earlier, but without the test points):
+The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood \begin{equation}log P(Y | X, \beta)\end{equation} (it's almost the same multivariate distribution we used earlier, but without the test points):
 
 $$
 \beta^* = \arg\max_\beta log P(Y|X,\beta) = \arg\max_\beta -\frac1{2}Y^TK^{-1}Y - \frac{n}{2}log2\pi -\frac1{2}|K|
