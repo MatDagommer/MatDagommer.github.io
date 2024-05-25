@@ -20,7 +20,7 @@ P(Y^* | X^*, X, Y) = \int P(Y^* | X^*, \beta) P(\beta | X, Y) d\beta
 \]
 
 ## Assumption of Gaussian Distributions
-The idea behind Gaussian processes is to assume that the distributions from our problem are Gaussian. This will allow us to make the assumption that the posterior predictive distribution is also Gaussian! This video explains nicely why this assumption is reasonable. Here is the short version: if you look at the formula below and if everything on the right is assumed to be Gaussian, then the posterior distribution becomes Gaussian immediately (because Gaussian distributions are conjugate prior of… Gaussian distributions).
+The idea behind Gaussian processes is to assume that the distributions from our problem are Gaussian. This will allow us to make the assumption that the posterior predictive distribution is also Gaussian! This [video](https://www.youtube.com/watch?v=R-NUdqxKjos) explains nicely why this assumption is reasonable. Here is the short version: if you look at the formula below and if everything on the right is assumed to be Gaussian, then the posterior distribution becomes Gaussian immediately (because Gaussian distributions are conjugate prior of… Gaussian distributions).
 
 \[
 P(Y | X) \sim \mathcal{N}(\mu, \Sigma)
@@ -53,4 +53,9 @@ P(Y^* | X^*, X, Y) \sim \mathcal{N}(K(X^*, X) K(X, X)^{-1} Y, K(X^*, X^*) - K(X^
 ## Conclusion
 This is only the beginning of my exploration with Gaussian processes, and I'm eager to learn more about the applications. My understanding is that Gaussian processes are well suited for small datasets but scale badly with big datasets, especially because matrix inversion has a computation time complexity of \(O(n^3)\). However, I am really hyped about the uncertainty measure we can get out of it.
 
+### Sources
+https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote15.html
+https://scikit-learn.org/stable/modules/gaussian_process.html
+https://en.wikipedia.org/wiki/Gaussian_process
+https://www.youtube.com/watch?v=UBDgSHPxVME
 
