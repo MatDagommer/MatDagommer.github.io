@@ -92,7 +92,7 @@ What's important to understand at this point is that candidate "functions" that 
 
 ### Hyperparameter Optimization
 
-The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood \begin{equation}log P(Y | X, \beta)\end{equation} (it's almost the same multivariate distribution we used earlier, but without the test points):
+The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood $$log P(Y \| X, \beta)$$ (it's almost the same multivariate distribution we used earlier, but without the test points):
 
 $$
 \beta^* = \arg\max_\beta log P(Y|X,\beta) = \arg\max_\beta -\frac1{2}Y^TK^{-1}Y - \frac{n}{2}log2\pi -\frac1{2}|K|
