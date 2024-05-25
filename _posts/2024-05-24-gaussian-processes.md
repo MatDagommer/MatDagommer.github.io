@@ -1,5 +1,7 @@
 # Gaussian Processes
 
+{% include figure.liquid path="assets/img/10.jpg" class="img-fluid rounded z-depth-1" %}
+
 ## Introduction
 I just delved into this cool thing called Gaussian processes and I thought I would make a quick summary of what I was able to grasp from the concept. I came across Gaussian processes in the past in the context of hyperparameter optimization but never dug further. But a more global reflection on uncertainty quantification in machine learning led me to take a closer look. Turns out that Gaussian processes inherently allow us to compute some kind of uncertainty!
 
