@@ -73,7 +73,7 @@ $$
 
 Note that this expression can be generalized when the input space has several dimensions:
 $$
-k(x, x') = \sigma_f^2\exp\left(-\frac{(\textbf{x} - \textbf{x'})^T(\textbf{x} - \textbf{x'})}{2l}\right)
+k(x, x') = \sigma_f^2\exp\left(-\frac1{2l}(\textbf{x} - \textbf{x'})^T(\textbf{x} - \textbf{x'})\right)
 $$
 
 “But why the heck are we customizing the covariance matrix?” 
@@ -88,14 +88,16 @@ $$
 
 ### Some intuition
 
-What's important to understand at this point is that candidate "functions" that model our data can be sampled from the joint distribution. I used quote marks here because we don't retrieve a function per se, but rather a set of what the true values could look like for the different $$x$$ values. If I have 20 points in my training set, I am basically sampling one vector from a 20-dimnensional Gaussian distribution. This is well explained in this short [paper](https://arxiv.org/pdf/2009.10862).
+What's important to understand at this point is that candidate "functions" that model our data can be sampled from the joint distribution. I used quote marks here because we don't retrieve a function per se, but rather a set of what the true values could look like for the different $$x$$ values. If I have 20 points in my training set, I am basically sampling one vector from a 20-dimnensional Gaussian distribution. This is well explained in this short [paper](https://arxiv.org/pdf/2009.10862). 
+
+In addition, the joint distribution and its kernel constitute a prior ("kernelized prior function"), and the conditional distribution is the posterior distribution we obtain by acknowledging the training data ($$Y$$ vector).
 
 ### Hyperparameter Optimization
 
-The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood $$log P(Y \| X, \beta)$$ (it's almost the same multivariate distribution we used earlier, but without the test points):
+The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood $$\log P(Y \| X, \beta)$$ (it's almost the same multivariate distribution we used earlier, but without the test points):
 
 $$
-\beta^* = \arg\max_\beta log P(Y|X,\beta) = \arg\max_\beta -\frac1{2}Y^TK^{-1}Y - \frac{n}{2}log2\pi -\frac1{2}|K|
+\beta^* = \arg\max_\beta \log P(Y|X,\beta) = \arg\max_\beta -\frac1{2}Y^TK^{-1}Y - \frac{n}{2}\log2\pi -\frac1{2}\log|K|
 $$
 
 
