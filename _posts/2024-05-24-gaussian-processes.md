@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Decision trees in 5 minutes
-date: 2024-04-25 15:09:00
-description: Learn how Decision Trees are trained.
-tags: Decision Tree, ML, Random Forest, XGBoost
+title: Gaussian Processes
+date: 2024-05-24 22:24:00
+description: A quick look at Gaussian Processes.
+tags: Bayesian Statistics, ML, Uncertainty Quantification
 categories: ML
 featured: true
 ---
