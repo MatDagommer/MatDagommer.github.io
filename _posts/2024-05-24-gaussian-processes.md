@@ -56,16 +56,20 @@ You may ask, “Why the heck are we customizing the covariance matrix?” Here�
 
 By choosing an appropriate kernel function that correctly captures the similarity between input values, we should retrieve a nice joint distribution. Now, we need to derive the conditional distribution of the test point we want to infer. Here’s the formula, I’m sparing myself the math:
 
-$$
+\[
 P(Y^* | X^*, X, Y) \sim \mathcal{N}(K(X^*, X) K(X, X)^{-1} Y, K(X^*, X^*) - K(X^*, X) K(X, X)^{-1} K(X, X^*))
-$$
+\]
 
 ## Conclusion
 This is only the beginning of my exploration with Gaussian processes, and I'm eager to learn more about the applications. My understanding is that Gaussian processes are well suited for small datasets but scale badly with big datasets, especially because matrix inversion has a computation time complexity of \(O(n^3)\). However, I am really hyped about the uncertainty measure we can get out of it.
 
-### Sources
+**Sources**
+
 https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote15.html
+
 https://scikit-learn.org/stable/modules/gaussian_process.html
+
 https://en.wikipedia.org/wiki/Gaussian_process
+
 https://www.youtube.com/watch?v=UBDgSHPxVME
 
