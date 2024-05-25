@@ -8,35 +8,33 @@ categories: ML
 featured: true
 ---
 
-# Gaussian Processes
-
 {% include figure.liquid path="assets/img/gaussian-processes.png" class="img-fluid rounded z-depth-1" %}
 
-## Introduction
+### Introduction
 I just delved into this cool models called Gaussian processes and I thought I would make a quick summary of what I was able to grasp from the concept. I came across Gaussian processes in the past in the context of hyperparameter optimization but never dug further, but a more global reflection on uncertainty quantification in machine learning led me to take a closer look. Turns out that Gaussian processes inherently allow us to compute some kind of uncertainty!
 
-## Bayesian Perspective on Weight Derivation
+### Bayesian Perspective on Weight Derivation
 What most machine learning models do is come up with a set of weights or a model we can use to do inference. Usually, the way these weights are derived is by looking at the Maximum A Posteriori (MAP), which means maximizing the posterior distribution. If you look at the Bayesian interpretation of ordinary least squares or ridge regression, it turns out that coming up with those weights consists in finding the weights that maximize the posterior distribution of the weights.
 
 $$
 \hat{\beta} = \arg\max_\beta P(\beta | X, Y) = \arg\max_\beta P(Y | X, \beta) P(\beta)
 $$
 
-## Posterior Predictive Distribution
+### Posterior Predictive Distribution
 But the problem with this approach is that you only consider a single set of weights for your predictions. And in the process, you ruled out completely other possible models, although they may be as valid! Gaussian processes allow us to take into account all model configurations by directly modeling the posterior predictive distribution. Indeed, if we look at it from the Bayesian perspective, we see that the posterior predictive distribution integrates over all possible sets of model weights:
 
 $$
 P(Y^* | X^*, X, Y) = \int P(Y^* | X^*, \beta) P(\beta | X, Y) d\beta
 $$
 
-## Assumption of Gaussian Distributions
+### Assumption of Gaussian Distributions
 The idea behind Gaussian processes is to assume that the posterior predictive distribution is a multivariate Gaussian. This [video](https://www.youtube.com/watch?v=R-NUdqxKjos) explains nicely why this assumption is reasonable. Here is the short version: if your prior and your likelihood distributions are assumed to be Gaussian, then the posterior distribution becomes Gaussian immediately (because Gaussian distributions are conjugate prior of… Gaussian distributions).
 
 $$
 P(Y | X) \sim \mathcal{N}(\mu, \Sigma)
 $$
 
-## Covariance Matrix and Kernel Trick
+### Covariance Matrix and Kernel Trick
 Since we have shown that this is reasonable, we'll just assume it from now on. Now here's the trick: not only do we assume that the training set follows a Gaussian distribution, we also assume that the combination of the training points and the test points also follow a Gaussian distribution:
 
 $$
@@ -81,7 +79,7 @@ $$
 P(Y^* | X^*, X, Y) \sim \mathcal{N}(K(X^*, X) K(X, X)^{-1} Y, K(X^*, X^*) - K(X^*, X) K(X, X)^{-1} K(X, X^*))
 $$
 
-## Conclusion
+### Conclusion
 This is only the beginning of my exploration with Gaussian processes, and I'm eager to learn more about the applications. My understanding is that Gaussian processes are well suited for small datasets but scale badly with big datasets, especially because matrix inversion has a computation time complexity of $$O(n^3)$$. However, I am really hyped about the uncertainty measure we can get out of it.
 
 **Sources**
