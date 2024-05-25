@@ -63,7 +63,7 @@ K_{X, X^*}^T & K_{X^*, X^*}
 \end{bmatrix}
 $$
 
-where $$K_{X, X} is the train covariance matrix, $$K_{X, X^*}$$ is the train-test covariance matrix and $$K_{X^*, X^*}$$ the test covariance matrix.
+where $$K_{X, X}$$ is the train covariance matrix, $$K_{X, X^*}$$ is the train-test covariance matrix and $$K_{X^*, X^*}$$ the test covariance matrix.
 
 The RBF kernel is commonly used and is a way to capture the similarity between two data points:
 
@@ -88,10 +88,10 @@ $$
 
 ### Hyperparameter Optimization
 
-The kernel function we introduced has two parameters $$sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood $$log P(Y|X,\beta)$$ (it's almost the same multivariate distribution we used earlier, but without the test points):
+The kernel function we introduced has two parameters $$\sigma_f$$ and $$l$$, respectively the vertical and horizontal scale. I'll designated them under the term $$\beta$$. They can be optimized by maximizing the log marginal likelihood $$log P(Y|X,\beta)$$ (it's almost the same multivariate distribution we used earlier, but without the test points):
 
 $$
-\beta^* = \arg\max_\beta log P(Y|X,\beta) = \arg\max_\beta -\frac1{2}Y^TKY - \frac{n}{2}log2\pi -\frac1{2}|K|
+\beta^* = \arg\max_\beta log P(Y|X,\beta) = \arg\max_\beta -\frac1{2}Y^TK^{-1}Y - \frac{n}{2}log2\pi -\frac1{2}|K|
 $$
 
 
