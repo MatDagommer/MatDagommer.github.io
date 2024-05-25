@@ -61,7 +61,7 @@ P(Y^* | X^*, X, Y) \sim \mathcal{N}(K(X^*, X) K(X, X)^{-1} Y, K(X^*, X^*) - K(X^
 \]
 
 ## Conclusion
-This is only the beginning of my exploration with Gaussian processes, and I'm eager to learn more about the applications. My understanding is that Gaussian processes are well suited for small datasets but scale badly with big datasets, especially because matrix inversion has a computation time complexity of \(O(n^3)\). However, I am really hyped about the uncertainty measure we can get out of it.
+This is only the beginning of my exploration with Gaussian processes, and I'm eager to learn more about the applications. My understanding is that Gaussian processes are well suited for small datasets but scale badly with big datasets, especially because matrix inversion has a computation time complexity of $$O(n^3)$$. However, I am really hyped about the uncertainty measure we can get out of it.
 
 **Sources**
 
