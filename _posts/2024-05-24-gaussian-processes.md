@@ -1,3 +1,13 @@
+---
+layout: post
+title: Decision trees in 5 minutes
+date: 2024-04-25 15:09:00
+description: Learn how Decision Trees are trained.
+tags: Decision Tree, ML, Random Forest, XGBoost
+categories: ML
+featured: true
+---
+
 # Gaussian Processes
 
 {% include figure.liquid path="assets/img/gaussian-processes.png" class="img-fluid rounded z-depth-1" %}
