@@ -14,7 +14,7 @@ featured: true
 My recent reflection on uncertainty quantification in machine learning led me to take a closer look at Gaussian Processes. Turns out that Gaussian processes inherently allow us to compute some kind of uncertainty!
 
 ### Bayesian Perspective on Weight Derivation
-What most machine learning models do is come up with a set of weights or a model we can use to do inference. Usually, the way these weights are derived is by looking at the Maximum A Posteriori (MAP), which means they maximize the posterior distribution. If you look at the Bayesian interpretation of ordinary least squares or ridge regression, it turns out that coming up with those weights consists in finding the weights that maximize the posterior distribution of the weights.
+What most machine learning models do is come up with a set of weights or a model we can use to do inference. Usually, the way these weights are derived is by looking at the Maximum A Posteriori (MAP), which means they maximize the posterior distribution. If you look at the Bayesian interpretation of ordinary least squares or ridge regression, it turns out that it is equivalent to finding the weights that maximize the weights' posterior distribution.
 
 $$
 \hat{\theta} = \arg\max_\theta P(\theta | X, Y) = \arg\max_\theta P(Y | X, \theta) P(\theta)
