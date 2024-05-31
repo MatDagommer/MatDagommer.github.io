@@ -10,12 +10,11 @@ featured: true
 
 {% include figure.liquid path="assets/img/9.jpg" class="img-fluid rounded z-depth-1" %}
 
-After 2 years of doing projects in the machine learning space, I realized I didn't know how decision tree models actually worked. I never felt the urge of learning the inner working for several reasons:
+After 2 years of doing projects in the machine learning space, I realized I didn't know how decision tree models actually worked. I never felt the urge of learning the inner working for 2 reasons:
 - My early ML classes focused on differentiable models (Andrew Ng).
 - Implementation of decision trees with the Python scikit-learn, is very easy and high-level.
-- Although I trained decision trees as benchmarks, I never thought of them as a go-to models.
 
-Well, I (finally) decided to take a good look! In this short post, I try to describe the training process of a decision tree in an accessible language, as a reference for myself and for folks looking for a concise, yet technical explanation.
+So, I decided to take a good look! This short post contains a quick description of the training process of a decision tree in a language my future self will understand, and hopefully you too.
 
 **I. The tree structure**
 
@@ -23,7 +22,7 @@ Well, I (finally) decided to take a good look! In this short post, I try to desc
 
 I'm sure you've encountered tree structures before, and they're fairly easy to make sense of when presented in that format: take your input, and depending on its features (alcohol content, sulfur dioxide content), follow the path. Boom. Your output (in this case, your wine quality) is predicted to be a 6 (good) or a 5 (less good). Straightforward. 
 
-But this tree is just one tree among a myriad of possibilities, and I could come up with an infinity of combinations: why not sort wines based on their density instead of their alcohol content at the root node? Why not change the threshold to 2.120 instead of 10.525? What decided that structure? Let's break it down:
+But this tree is just one tree among a myriad of possibilities, and I could come up with an infinity of combinations: why not sort wines based on their density instead of their alcohol content at the root node? Why not change the threshold to 2.120 instead of 10.525? What decided that structure and these specific sequence of features and thresholds? Let's break it down:
 
 At every node (nodes represent stages at which data gets sorted) of the tree, we want to separate the training data into different groups in a fashion that allows us to retrieve more homogeneous subsets (in terms of their target variable) at every step. In the case of classification (resp. regression), this means that training points with similar labels (resp., target values) tend to get sorted in the same subset.
 
@@ -51,7 +50,7 @@ In the wine quality dataset, features are continuous (alcohol content, total sul
 
 This is the code I used to generate the figure:
 
-{% highlight python linenos %}
+{% highlight python %}
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
