@@ -2,7 +2,7 @@
 layout: post
 title: Bayes-UCB algorithm
 date: 2024-06-13 19:37:00
-description: Learn how Decision Trees are trained.
+description: Optimization for real G's.
 tags: Bayes, ML, Algorithm, Multi-armed bandit, Optimization
 categories: ML
 featured: true
