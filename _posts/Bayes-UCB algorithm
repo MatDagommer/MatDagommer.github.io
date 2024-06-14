@@ -1,0 +1,14 @@
+# Algorithm 1: Bayes-UCB
+
+**Require:** 
+- \( n \) (horizon)
+- \( \Pi_0 \) (initial prior on \(\theta\))
+- \( c \) (parameters of the quantile)
+
+1. **for** \( t = 1 \) to \( n \) **do**
+2. &nbsp;&nbsp;&nbsp;&nbsp;**for** each arm \( j = 1, \ldots, K \) **do**
+3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compute \( q_j(t) = Q\left(1 - \frac{1}{t (\log n)^c}, \lambda_{t-1}^j\right) \)
+4. &nbsp;&nbsp;&nbsp;&nbsp;**end for**
+5. &nbsp;&nbsp;&nbsp;&nbsp;draw arm \( I_t = \arg\max_{j=1,\ldots,K} q_j(t) \)
+6. &nbsp;&nbsp;&nbsp;&nbsp;get reward \( X_t = Y_{I_t,t} \) and update \( \Pi_t \) according to (3)
+7. **end for**
