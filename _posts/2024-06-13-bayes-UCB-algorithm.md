@@ -88,10 +88,10 @@ $$\pi_{j,t} (\theta_j) \propto \nu_{\theta_j}(X_t) \pi_{j,t} (\theta_j)$$ where 
 The distribution $$\lambda_{j,t}$$ of the mean can be derived from the reward distribution $$\pi_{j,t}$$ using Bayes’ theorem, since the mean is a parameter of the reward distribution: 
 
 
-* In the case of binary rewards (pass or fail), the reward can be modeled by a Bernoulli random variable with parameter $$\theta$$. In order to save ourselves complexity, we can use a Beta distribution for parameter $$\theta$$ as a conjugate prior such that $$\theta \sim Beta(a, b)$$. The posterior becomes $$Beta(a + S_t(j), b + N_t(j) - S_t(j))$$ where $$S_t(j)$$ is the sum of rewards collected from that arm until step $$t$$. The quantile is easily computed from this well-known distribution. In the chemistry paper, binary rewards are used for reactivity threshold (the selected conditions are either below or above that threshold).
+In the case of binary rewards (pass or fail), the reward can be modeled by a Bernoulli random variable with parameter $$\theta$$. In order to save ourselves complexity, we can use a Beta distribution for parameter $$\theta$$ as a conjugate prior such that $$\theta \sim Beta(a, b)$$. The posterior becomes $$Beta(a + S_t(j), b + N_t(j) - S_t(j))$$ where $$S_t(j)$$ is the sum of rewards collected from that arm until step $$t$$, and $$N_t(j)$$ is the number of times arm $$j$$ was picked up until step $$t$$. The quantile is easily computed from this well-known distribution. In the chemistry paper, binary rewards are used for reactivity threshold (the selected conditions are either below or above that threshold).
 
 
-* In the case of continuous reward, we can model it as a Gaussian distribution. Assuming a Gaussian prior, and assuming both the mean and variance of the prior are unknown, we can the following convenient conjugate priors: $$\mu | \sigma_0 \sim \mathcal{N}(\mu_0, \sigma^2/\kappa_0)$$ and $$\sigma^2 \sim Inv-Gamma(\alpha_0, \beta_0)$$.
+In the case of continuous reward, we can model it as a Gaussian distribution. Assuming a Gaussian prior, and assuming both the mean and variance of the prior are unknown, we can the following convenient conjugate priors: $$\mu | \sigma_0 \sim \mathcal{N}(\mu_0, \sigma^2/\kappa_0)$$ and $$\sigma^2 \sim Inv-Gamma(\alpha_0, \beta_0)$$.
 The resulting posterior is:
 
 
@@ -104,13 +104,14 @@ $$
 
 
 where the updated parameters are given by:
-- $$\kappa_n=\kappa_0+n$$
-- $$\mu_n=\frac{\kappa_0 \mu_0+n \bar{x}}{\kappa_0+n}$$
-- $$\alpha_n=\alpha_0+\frac{n}{2}$$
-- $$\beta_n=\beta_0+\frac{1}{2}\left[\sum_{i=1}^n\left(x_i-\bar{x}\right)^2+\frac{\kappa_0 n\left(\bar{x}-\mu_0\right)^2}{\kappa_0+n}\right]$$
+
+
+$$\kappa_n=\kappa_0+n$$, $$\mu_n=\frac{\kappa_0 \mu_0+n \bar{x}}{\kappa_0+n}$$, $$\alpha_n=\alpha_0+\frac{n}{2}$$ and $$\beta_n=\beta_0+\frac{1}{2}\left[\sum_{i=1}^n\left(x_i-\bar{x}\right)^2+\frac{\kappa_0 n\left(\bar{x}-\mu_0\right)^2}{\kappa_0+n}\right]$$.
+
+
 Once again, all distributions are well-known and the quantiles are ready to be inferred.
 	
-* In the chemistry paper, the authors actually did something simpler and used a fixed variance:
+In the chemistry paper, the authors actually did something simpler and used a fixed variance:
 
 ```python
 class BayesUCBGaussianPPF(UCB1):
