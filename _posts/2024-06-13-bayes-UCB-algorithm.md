@@ -85,7 +85,7 @@ So how is the exploitation-exploration managed in this new implementation?
 ###  Bayesian considerations
 
 The reward distribution $$\pi_{j,t}$$ is updated using Bayes’ theorem: 
-$$\pi_{j,t} (\theta_j) \propto \nu_{\theta_j}(X_t) \pi_{j,t} (\theta_j)$$ where $$\nu_{\theta_j}(X_t)$$ is the likelihood of observing reward X_t given mean $$\theta_j$$.
+$$\pi_{j,t} (\theta_j) \propto \nu_{\theta_j}(X_t) \pi_{j,t} (\theta_j)$$ where $$\nu_{\theta_j}(X_t)$$ is the likelihood of observing reward $$X_t$$ given mean $$\theta_j$$.
 
 The distribution $$\lambda_{j,t}$$ of the mean can be derived from the reward distribution $$\pi_{j,t}$$ using Bayes’ theorem, since the mean is a parameter of the reward distribution: 
 
