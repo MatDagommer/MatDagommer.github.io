@@ -76,7 +76,7 @@ Here also, the reward $$X_t$$ is then sampled from the selected arm. This new da
 Let’s look at $$q_j(t)$$ in more detail:
 
 
-As explained in the paper, $$Q(\alpha, \rho)$$ is the quantile function of the distribution \rho. Here the distribution is $$\lambda_j^{t-1}$$, the distribution of the arm’s mean reward before the update. We’re looking for the quantile at percentile $$1 - \frac1{t(log n)^c}$$, which is another way of defining an Upper Confidence Bound of the current arm’s parameter distribution.
+As explained in the paper, $$Q(\alpha, \rho)$$ is the quantile function of the distribution $$\rho$$. Here the distribution is $$\lambda_j^{t-1}$$, the distribution of the arm’s mean reward before the update. We’re looking for the quantile at percentile $$1 - \frac1{t(log n)^c}$$, which is another way of defining an Upper Confidence Bound of the current arm’s parameter distribution.
 The percentile $$1 - \frac1{t(log n)^c}$$ is an “artifact of the theoretical analysis [..] But in simulations, the choice c = 0 actually proved to be the most satisfying”. Ok, we'll assume that. Please replace $$1 - \frac1{t(log n)^c}$$ by $$1 - \frac1{t}$$ in your head :)
 
 
