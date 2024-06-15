@@ -26,7 +26,7 @@ This problem models real-world situations where one must make a series of decisi
 
 ### the original UCB algorithm
 
-Here’s the classic UCB algorithm shamelessly stolen from these [notes](https://users.cs.duke.edu/~cynthia/CourseNotes/MABNotes.pdf):
+Here’s the classic UCB algorithm (shamelessly stolen from these [notes](https://users.cs.duke.edu/~cynthia/CourseNotes/MABNotes.pdf)):
 
 
 {% include figure.liquid path="assets/img/ucb-algo.jpg" class="img-fluid rounded z-depth-1" %}
@@ -36,7 +36,7 @@ Let’s dissect it:
 
 The number of rounds $$n$$ is the total number of steps. The gambler is going to choose an arm $$n$$ times. There are $$m$$ arms.
 $$\hat{X}_{j, t}$$ is the average reward measured for arm $$j$$ at step $$t$$. Initial values for each arm ($$\hat{X}_{1, 0}$$, $$\hat{X}_{2, 0}$$, …, $$\hat{X}_{m, 0}$$) are obtained by playing each arm once at the beginning. 
-$$\hat{X}_{j, t-1}$$ is the average reward measured for arm $$j$$ at step $$t-1$$. The sum $$\hat{X}_{j, t-1} + \sqrt(frac{2log(t)}{T_j(t-1)})$$ is the mean value plus an exploration term.
+$$\hat{X}_{j, t-1}$$ is the average reward measured for arm $$j$$ at step $$t-1$$. The sum $$\hat{X}_{j, t-1} + \sqrt(\frac{2log(t)}{T_j(t-1)})$$ is the mean value plus an exploration term.
 
 
 This is how the classic implementation manages the trade-off between exploration and exploitation: 
@@ -68,30 +68,30 @@ $$c$$ designates mysterious “parameters of the quantile”.
 
 
 The double loop is equivalent to the for loop in the first algorithm: for each time step t, we are computing a quantity $$q_j(t)$$ for each arm $$j$$ and picking the arm that maximizes this quantity. 
-Here also, the reward $$X_t$$ is then sampled from the selected arm. This new data is used to update the posterior distribution $$Pi^t$$, and more specifically the distribution of arm j $$pi_j^t$$, since the arms are assumed to be independent from each other. 
+Here also, the reward $$X_t$$ is then sampled from the selected arm. This new data is used to update the posterior distribution $$\Pi^t$$, and more specifically the distribution of arm j $$\pi_j^t$$, since the arms are assumed to be independent from each other. 
 
 
-Let’s look at $$q_j^t$$ in more detail:
+Let’s look at $$q_j(t)$$ in more detail:
 
 
 As explained in the paper, $$Q(\alpha, \rho)$$ is the quantile function of the distribution \rho. Here the distribution is $$\lambda_j^{t-1}$$, the distribution of the arm’s mean reward before the update. We’re looking for the quantile at percentile $$1 - \frac1{t(log n)^c}$$, which is another way of defining an Upper Confidence Bound of the current arm’s parameter distribution.
-The percentile $$1 - \frac1{t(log n)^c}$$ is an “artifact of the theoretical analysis [..] But in simulations, the choice c = 0 actually proved to be the most satisfying”. Ok, I’ll assume that. Replace $$1 - \frac1{t(log n)^c}$$ by $$1 - \frac1{t}$$!
+The percentile $$1 - \frac1{t(log n)^c}$$ is an “artifact of the theoretical analysis [..] But in simulations, the choice c = 0 actually proved to be the most satisfying”. Ok, we'll assume that. Please replace $$1 - \frac1{t(log n)^c}$$ by $$1 - \frac1{t}$$ in your head :)
 
 
 So how is the exploitation-exploration managed in this new implementation?
 
 ###  Bayesian considerations
 
-The reward distribution $$\pi_j,t$$ is updated using Bayes’ theorem: 
-$$\pi_j,t (\theta_j) \propto \nu_{\theta_j}(X_t) \pi_j,t (\theta_j)$$ where $$\nu_{\theta_j}(X_t)$$ is the likelihood of observing reward X_t given mean $$theta_j$$.
+The reward distribution $$\pi_{j,t}$$ is updated using Bayes’ theorem: 
+$$\pi_{j,t} (\theta_j) \propto \nu_{\theta_j}(X_t) \pi_{j,t} (\theta_j)$$ where $$\nu_{\theta_j}(X_t)$$ is the likelihood of observing reward X_t given mean $$\theta_j$$.
 
 The distribution $$\lambda_{j,t}$$ of the mean can be derived from the reward distribution $$\pi_{j,t}$$ using Bayes’ theorem, since the mean is a parameter of the reward distribution: 
 
 
-* In the case of binary rewards (pass or fail), the reward can be modeled by a Bernoulli random variable with parameter $$\theta$$. In order to save ourselves complexity, we can use a Beta distribution for parameter $$\theta$$ as a conjugate prior such that $$\theta ~ Beta(a, b)$$. The posterior becomes $$Beta(a + S_t(j), b + N_t(j) - S_t(j))$$ where $$S_t(j)$$ is the sum of rewards collected from that arm until step $$t$$. The quantile is easily computed from this well-known distribution. In the chemistry paper, binary rewards are used for reactivity threshold (the selected conditions are either below or above that threshold).
+* In the case of binary rewards (pass or fail), the reward can be modeled by a Bernoulli random variable with parameter $$\theta$$. In order to save ourselves complexity, we can use a Beta distribution for parameter $$\theta$$ as a conjugate prior such that $$\theta \~ Beta(a, b)$$. The posterior becomes $$Beta(a + S_t(j), b + N_t(j) - S_t(j))$$ where $$S_t(j)$$ is the sum of rewards collected from that arm until step $$t$$. The quantile is easily computed from this well-known distribution. In the chemistry paper, binary rewards are used for reactivity threshold (the selected conditions are either below or above that threshold).
 
 
-* In the case of continuous reward, we can model it as a Gaussian distribution. Assuming a Gaussian prior, and assuming both the mean and variance of the prior are unknown, we can the following convenient conjugate priors: $$\mu | \sigma_0 ~ \mathcal{N}(\mu_0, \sigma^2/\kappa_0)$$ and $$\sigma^2 ~ Inv-Gamma(\alpha_0, \beta_0)$$.
+* In the case of continuous reward, we can model it as a Gaussian distribution. Assuming a Gaussian prior, and assuming both the mean and variance of the prior are unknown, we can the following convenient conjugate priors: $$\mu | \sigma_0 \~ \mathcal{N}(\mu_0, \sigma^2/\kappa_0)$$ and $$\sigma^2 \~ Inv-Gamma(\alpha_0, \beta_0)$$.
 The resulting posterior is:
 
 
