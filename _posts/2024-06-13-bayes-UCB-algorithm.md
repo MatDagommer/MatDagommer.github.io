@@ -132,7 +132,7 @@ class BayesUCBGaussianPPF(UCB1):
 
 ### Quick word about the UCB1-tuned algorithm:
 
-This algorithm is also being used in the paper and is a variation of the UCB algorithm. It has the advantage of being non-parametric, although being slightly less performant as the Bayes-UCB.
+This algorithm is also being used in the paper and is a variation of the UCB algorithm. Contrary to UCB and Bayes-UCB, it takes into account the measured variance. The UCB1-Tuned has also the advantage of not requiring user-defined parameters, although being slightly less performant as the Bayes-UCB.
 
 Here’s an extract from the original paper:
 
@@ -152,3 +152,7 @@ https://link.springer.com/article/10.1023/A:1013689704352
 https://proceedings.mlr.press/v22/kaufmann12/kaufmann12.pdf
 
 https://users.cs.duke.edu/~cynthia/CourseNotes/MABNotes.pdf
+
+https://webdocs.cs.ualberta.ca/~games/go/seminar/notes/2007/slides_ucb.pdf
+
+
