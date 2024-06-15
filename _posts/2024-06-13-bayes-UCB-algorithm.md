@@ -36,14 +36,14 @@ Let’s dissect it:
 
 The number of rounds $$n$$ is the total number of steps. The gambler is going to choose an arm $$n$$ times. There are $$m$$ arms.
 $$\hat{X}_{j, t}$$ is the average reward measured for arm $$j$$ at step $$t$$. Initial values for each arm ($$\hat{X}_{1, 0}$$, $$\hat{X}_{2, 0}$$, …, $$\hat{X}_{m, 0}$$) are obtained by playing each arm once at the beginning. 
-$$\hat{X}_{j, t-1}$$ is the average reward measured for arm $$j$$ at step $$t-1$$. The sum $$\hat{X}_{j, t-1} + \sqrt(\frac{2log(t)}{T_j(t-1)})$$ is the mean value plus an exploration term.
+$$\hat{X}_{j, t-1}$$ is the average reward measured for arm $$j$$ at step $$t-1$$. The sum $$\hat{X}_{j, t-1} + \sqrt{\frac{2log(t)}{T_j(t-1)}}$$ is the mean value plus an exploration term.
 
 
 This is how the classic implementation manages the trade-off between exploration and exploitation: 
 
 
 * The mean reward takes care of the exploitation part.
-* The $$T_j(t-1)$$ term increases as you select the same arm. Naturally, the uncertainty on the average value decreases (the standard deviation of mean is equal to the standard deviation of the population divided by $$\sqrt(n)$$ in the frequentist frame). For arms that haven’t been selected as many times, their uncertainty remains high which increases their chances to be picked up because the upper confidence bound remains high, which leaves space for exploration.
+* The $$T_j(t-1)$$ term increases as you select the same arm. Naturally, the uncertainty on the average value decreases (the standard deviation of mean is equal to the standard deviation of the population divided by $$\sqrt{n}$$ in the frequentist frame). For arms that haven’t been selected as many times, their uncertainty remains high which increases their chances to be picked up because the upper confidence bound remains high, which leaves space for exploration.
 * In the exploration term, $$T_j(t-1)$$ is the number of times arm $$j$$ was selected in the past steps. It ensures that the arms that have been played the most have a lower exploration term, and that other arms are given higher priority.
 
 
@@ -88,10 +88,10 @@ $$\pi_{j,t} (\theta_j) \propto \nu_{\theta_j}(X_t) \pi_{j,t} (\theta_j)$$ where 
 The distribution $$\lambda_{j,t}$$ of the mean can be derived from the reward distribution $$\pi_{j,t}$$ using Bayes’ theorem, since the mean is a parameter of the reward distribution: 
 
 
-* In the case of binary rewards (pass or fail), the reward can be modeled by a Bernoulli random variable with parameter $$\theta$$. In order to save ourselves complexity, we can use a Beta distribution for parameter $$\theta$$ as a conjugate prior such that $$\theta \~ Beta(a, b)$$. The posterior becomes $$Beta(a + S_t(j), b + N_t(j) - S_t(j))$$ where $$S_t(j)$$ is the sum of rewards collected from that arm until step $$t$$. The quantile is easily computed from this well-known distribution. In the chemistry paper, binary rewards are used for reactivity threshold (the selected conditions are either below or above that threshold).
+* In the case of binary rewards (pass or fail), the reward can be modeled by a Bernoulli random variable with parameter $$\theta$$. In order to save ourselves complexity, we can use a Beta distribution for parameter $$\theta$$ as a conjugate prior such that $$\theta \sim Beta(a, b)$$. The posterior becomes $$Beta(a + S_t(j), b + N_t(j) - S_t(j))$$ where $$S_t(j)$$ is the sum of rewards collected from that arm until step $$t$$. The quantile is easily computed from this well-known distribution. In the chemistry paper, binary rewards are used for reactivity threshold (the selected conditions are either below or above that threshold).
 
 
-* In the case of continuous reward, we can model it as a Gaussian distribution. Assuming a Gaussian prior, and assuming both the mean and variance of the prior are unknown, we can the following convenient conjugate priors: $$\mu | \sigma_0 \~ \mathcal{N}(\mu_0, \sigma^2/\kappa_0)$$ and $$\sigma^2 \~ Inv-Gamma(\alpha_0, \beta_0)$$.
+* In the case of continuous reward, we can model it as a Gaussian distribution. Assuming a Gaussian prior, and assuming both the mean and variance of the prior are unknown, we can the following convenient conjugate priors: $$\mu | \sigma_0 \sim \mathcal{N}(\mu_0, \sigma^2/\kappa_0)$$ and $$\sigma^2 \sim Inv-Gamma(\alpha_0, \beta_0)$$.
 The resulting posterior is:
 
 
