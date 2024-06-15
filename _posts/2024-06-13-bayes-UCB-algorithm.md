@@ -57,6 +57,8 @@ In their paper [On Bayesian Upper Confidence Bounds for Bandit Problems](https:/
 
 {% include figure.liquid path="assets/img/bayes-ucb-algo.jpg" class="img-fluid rounded z-depth-1" %}
 
+![Image](assets/img/bayes-ucb-algo.jpg){: width="50%" height="50%"}
+
 
 Theorems and lemmas aside, here’s what we can learn by looking directly at the algorithm. The notation is different from the previous algorithm:
 
