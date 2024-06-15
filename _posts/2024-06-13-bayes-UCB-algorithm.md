@@ -112,7 +112,7 @@ Once again, all distributions are well-known and the quantiles are ready to be i
 	
 * In the chemistry paper, the authors actually did something simpler and used a fixed variance:
 
-'''python
+```python
 class BayesUCBGaussianPPF(UCB1):
     # Used to be called NewBayesUCBGaussian
     # same as BayesUCBBetaPPF, but uses a gaussian prior with fixed variance
@@ -124,7 +124,7 @@ class BayesUCBGaussianPPF(UCB1):
         RegretAlgorithm.update(self, chosen_arm, reward)
         stds = [1 / math.sqrt(c + 1) for c in self.counts]
         self.ucbs = [norm.ppf((1-1/sum(self.counts)), m, s) for m, s in zip(self.emp_means, stds)]
-‘’’
+```
 
 
 ### Quick word about the UCB1-tuned algorithm:
