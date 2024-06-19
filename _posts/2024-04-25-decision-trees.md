@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Decision trees in 5 minutes
+title: Decision trees in 6 minutes
 date: 2024-04-25 15:09:00
-description: Learn how Decision Trees are trained.
+description: Quick notes on decision trees training.
 tags: Decision Tree, ML, Random Forest, XGBoost
 categories: ML
 featured: true
