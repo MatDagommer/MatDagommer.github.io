@@ -8,7 +8,7 @@ categories: ML
 featured: true
 ---
 
-{% include figure.liquid path="assets/img/thompson_sampling.jpeg" class="img-fluid rounded z-depth-1" %}
+{% include figure.liquid path="assets/img/thompson-sampling.jpeg" class="img-fluid rounded z-depth-1" %}
 
 
 Screening of molecular libraries is usually performed to identify compounds with good properties. For moderately sized libraries (<$$10^9$$ compounds) and scoring functions that are fast at inference, it is possible to screen the entire library in a matter of hours. However, things get more complicated with ultra-large libraries (>$$10^9$$ compounds) and for scoring functions that take some time, like docking calculations.
