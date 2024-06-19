@@ -55,9 +55,7 @@ Note: some implementations use $$log(t-1)$$ instead of $$2log(t)$$. In the forme
 In their paper [On Bayesian Upper Confidence Bounds for Bandit Problems](https://proceedings.mlr.press/v22/kaufmann12/kaufmann12.pdf), Emilie Kaufmann, Olivier Cappé et Aurélien Garivier propose a Bayes version of the UCB algorithm. In a nutshell, the  difference between the “frequentist” and the Bayesian approach lies in the definition of the mean reward. In the former, it is an unknown but fixed quantity that we estimate by computing an average and in the latter, a probability distribution. 
 
 
-{% include figure.liquid path="assets/img/bayes-ucb-algo.jpg" class="img-fluid rounded z-depth-1" %}
-
-![Image](assets/img/bayes-ucb-algo.jpg){: width="50%" height="50%"}
+{% include figure.liquid path="assets/img/bayes-ucb-algo.jpg" class="img-fluid rounded z-depth-1" style="max-width: 50%;" %}
 
 
 Theorems and lemmas aside, here’s what we can learn by looking directly at the algorithm. The notation is different from the previous algorithm:
