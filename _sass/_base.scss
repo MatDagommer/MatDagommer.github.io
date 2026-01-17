@@ -193,10 +193,14 @@ blockquote {
 
 .profile.float-right {
   margin-left: 1rem;
+  width: auto;
+  max-width: 500px;
 }
 
 .profile.float-left {
   margin-right: 1rem;
+  width: auto;
+  max-width: 500px;
 }
 
 @media (min-width: 576px) {
@@ -208,6 +212,16 @@ blockquote {
         display: block;
       }
     }
+  }
+  
+  .profile.float-right {
+    width: auto;
+    max-width: 500px;
+  }
+  
+  .profile.float-left {
+    width: auto;
+    max-width: 500px;
   }
 }
 
