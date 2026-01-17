@@ -28,11 +28,36 @@ body.sticky-bottom-footer {
 }
 
 .container {
-  max-width: $max-content-width;
+  max-width: $max-content-width !important;
 }
 
-.post .container {
-  max-width: 90%;
+.container.mt-5 {
+  max-width: 95% !important;
+}
+
+// Override Bootstrap container constraints
+@media (min-width: 576px) {
+  .container, .container-sm {
+    max-width: 95% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container, .container-md {
+    max-width: 95% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .container, .container-lg {
+    max-width: 95% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container, .container-xl {
+    max-width: 95% !important;
+  }
 }
 
 // Profile

@@ -204,9 +204,9 @@ blockquote {
 
 @media (min-width: 576px) {
   .profile {
-    width: auto;
-    min-width: 400px;
-    max-width: 700px;
+    width: auto !important;
+    min-width: 400px !important;
+    max-width: 700px !important;
 
     .address {
       p {
@@ -216,20 +216,38 @@ blockquote {
   }
   
   .post article {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+    width: 100% !important;
   }
   
   .post article .clearfix {
-    flex: 1;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-    padding-right: 2rem;
-    order: 1;
+    flex: 1 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding-right: 2rem !important;
+    order: 1 !important;
+    max-width: none !important;
   }
   
   .post article .profile {
-    order: 2;
+    order: 2 !important;
+    float: none !important;
+  }
+  
+  .post .social {
+    margin-top: 3rem !important;
+    text-align: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding-top: 2rem !important;
+    clear: both !important;
+  }
+  
+  .post .social .contact-icons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    flex-wrap: wrap !important;
   }
 }
 
