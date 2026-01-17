@@ -178,6 +178,8 @@ blockquote {
 
 .profile {
   width: 100%;
+  max-width: 500px;
+  flex-shrink: 0;
 
   .more-info {
     margin-bottom: 5px;
@@ -192,20 +194,17 @@ blockquote {
 }
 
 .profile.float-right {
-  margin-left: 1rem;
-  width: auto;
-  max-width: 500px;
+  margin-left: 2rem;
 }
 
 .profile.float-left {
-  margin-right: 1rem;
-  width: auto;
-  max-width: 500px;
+  margin-right: 2rem;
 }
 
 @media (min-width: 576px) {
   .profile {
-    width: 95%;
+    width: 100%;
+    max-width: 500px;
 
     .address {
       p {
@@ -214,14 +213,14 @@ blockquote {
     }
   }
   
-  .profile.float-right {
-    width: auto;
-    max-width: 500px;
+  .post article {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
   }
   
-  .profile.float-left {
-    width: auto;
-    max-width: 500px;
+  .post article .clearfix {
+    flex: 1;
   }
 }
 
