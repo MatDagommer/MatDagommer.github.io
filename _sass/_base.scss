@@ -178,7 +178,7 @@ blockquote {
 
 .profile {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   flex-shrink: 0;
 
   .more-info {
@@ -204,7 +204,7 @@ blockquote {
 @media (min-width: 576px) {
   .profile {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
 
     .address {
       p {
@@ -221,6 +221,8 @@ blockquote {
   
   .post article .clearfix {
     flex: 1;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding-right: 2rem;
   }
 }
 
