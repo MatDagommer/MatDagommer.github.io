@@ -48,17 +48,17 @@ layout: default
         </h2>
         {% include news.liquid limit=true %}
       {% endif %}
+      
+      <!-- Latest posts directly under bio content -->
+      {% if page.latest_posts %}
+        <div style="margin-top: 2rem;">
+          <h2>
+            <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+          </h2>
+          {% include latest_posts.liquid %}
+        </div>
+      {% endif %}
     </div>
-
-    <!-- Latest posts in separate text box -->
-    {% if page.latest_posts %}
-      <div class="clearfix" style="margin-top: 1rem;">
-        <h2>
-          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-        </h2>
-        {% include latest_posts.liquid %}
-      </div>
-    {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}

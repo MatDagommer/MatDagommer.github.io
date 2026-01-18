@@ -23,11 +23,13 @@ nav_order: 7
         Your email:
         <input type="email" name="email">
       </label>
+      <br><br>
       <label>
         Your message:
-        <textarea name="message"></textarea>
+        <textarea name="message" rows="6" cols="50"></textarea>
       </label>
       <!-- your other form fields go here -->
+      <br><br>
       <button type="submit">Send</button>
     </form>
   </article>
