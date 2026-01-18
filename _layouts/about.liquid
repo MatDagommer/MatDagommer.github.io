@@ -4,7 +4,7 @@ layout: default
 <div class="post">
   <article>
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="display: flex; flex-direction: column; align-items: center;">
         <!-- Name and subtitle above the picture -->
         <div style="text-align: center; margin-bottom: 1rem;">
           <h1 class="post-title" style="margin-bottom: 0.5rem;">
@@ -55,7 +55,7 @@ layout: default
       {% if page.latest_posts %}
         <div style="margin-top: 2rem;">
           <h3>
-            <a href="{{ '/blog/' | relative_url }}" style="color: inherit">my latest posts:</a>
+            <a href="{{ '/blog/' | relative_url }}" style="color: inherit">My latest posts:</a>
           </h3>
           {% include latest_posts.liquid %}
         </div>
