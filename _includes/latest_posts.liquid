@@ -10,7 +10,7 @@
     {% for item in latest_posts limit: latest_posts_limit %}
       <div class="post-box" style="border: 1px solid #dee2e6; border-radius: 0.25rem; padding: 1rem; margin-bottom: 0.75rem; background-color: #fff;">
         <div class="post-content">
-          <span style="color: #6c757d; font-size: 0.9rem;">written by Matthieu Dagommer</span>
+          <span style="color: #6c757d; font-size: 0.9rem;">{{ item.date | date: "%Y-%m-%d" }}</span>
           <span style="margin: 0 0.5rem;">-</span>
           {% if item.redirect == blank %}
             <a href="{{ item.url | relative_url }}" style="color: #000; text-decoration: none; font-weight: 500;">{{ item.title }}</a>
