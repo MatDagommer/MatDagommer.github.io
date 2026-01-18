@@ -23,7 +23,7 @@ social: true # includes social icons at the bottom of the page
 ## Welcome to my website!
 
 
-My name is Matthieu, I'm a Machine Learning scientist at [AbbVie](https://www.abbvie.com/). I build models and software to accelerate the drug discovery pipeline, helping chemists discover better drugs faster.
+I'm Matthieu, a Machine Learning scientist at [AbbVie](https://www.abbvie.com/). I build models and software to accelerate the drug discovery pipeline, helping chemists discover better drugs faster.
 
 I'm motivated by real, measurable impact and by building tools that people actually enjoy using. 
 
