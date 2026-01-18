@@ -4,7 +4,7 @@ layout: default
 <div class="post">
   <article>
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="border: 2px solid red; padding: 10px; display: flex; flex-direction: column; align-items: center; margin-right: 30px;">
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="border: 2px solid red; padding: 10px; display: flex; flex-direction: column; align-items: center; margin-right: 60px;">
         <div style="border: 2px solid green; padding: 5px; margin-bottom: 0.5rem; text-align: center;">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
@@ -28,7 +28,7 @@ layout: default
         
         <!-- Social icons - can be positioned independently -->
         {% if page.social %}
-          <div class="social" style="margin-top: 0.5rem; border: 2px solid purple; padding: 5px; text-align: center;">
+          <div class="social" style="margin-top: 0.2rem; border: 2px solid purple; padding: 5px; text-align: center;">
             <div class="contact-icons">{% include social.liquid %}</div>
             {% if site.contact_note %}
               <div class="contact-note" style="margin-top: 0.5rem; font-size: 0.9rem;">{{ site.contact_note }}</div>
@@ -38,7 +38,7 @@ layout: default
       </div>
     {% endif %}
 
-    <div class="clearfix" style="margin-left: 30px;">
+    <div class="clearfix" style="margin-left: 60px;">
       
       {{ content }}
       
