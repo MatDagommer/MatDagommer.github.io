@@ -202,6 +202,55 @@ blockquote {
   margin-right: 2rem;
 }
 
+// Mobile-specific styles (screens smaller than 576px)
+@media (max-width: 575px) {
+  .profile {
+    min-width: unset !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    float: none !important;
+
+    img {
+      width: 90% !important;
+      max-width: 90% !important;
+      margin: 0 auto !important;
+      display: block !important;
+    }
+  }
+
+  .post article .profile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .social {
+    width: 100% !important;
+    margin: 1rem auto 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+
+    .contact-icons {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 1rem !important;
+    }
+  }
+
+  .post article {
+    display: block !important;
+  }
+
+  .post article .clearfix {
+    margin-left: 0 !important;
+  }
+}
+
 @media (min-width: 576px) {
   .profile {
     width: auto !important;

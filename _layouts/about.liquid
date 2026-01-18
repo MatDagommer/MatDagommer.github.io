@@ -4,7 +4,7 @@ layout: default
 <div class="post">
   <article>
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="padding: 10px; display: flex; flex-direction: column; align-items: center; margin-right: 60px;">
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="padding: 10px; display: flex; flex-direction: column; align-items: center;">
         <div style="padding: 5px; margin-bottom: 0.1rem; text-align: center;">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
