@@ -5,19 +5,6 @@ layout: default
   <article>
     {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="border: 2px solid red; padding: 10px;">
-        <!-- Name and subtitle - can be positioned independently -->
-        <div style="text-align: left; margin-bottom: 1rem; margin-left: -20px; border: 2px solid blue; padding: 5px;">
-          <h1 class="post-title" style="margin-bottom: 0.5rem;">
-            {% if site.title == 'blank' %}
-              <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-              {{ site.last_name }}
-            {% else %}
-              {{ site.title }}
-            {% endif %}
-          </h1>
-          <p class="desc">{{ page.subtitle }}</p>
-        </div>
-        
         <div style="border: 2px solid green; padding: 5px; margin-bottom: 0.5rem;">
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
