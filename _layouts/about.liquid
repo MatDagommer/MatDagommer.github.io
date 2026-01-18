@@ -4,9 +4,9 @@ layout: default
 <div class="post">
   <article>
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}" style="display: flex; flex-direction: column; align-items: center;">
-        <!-- Name and subtitle above the picture -->
-        <div style="text-align: center; margin-bottom: 1rem;">
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+        <!-- Name and subtitle - can be positioned independently -->
+        <div style="text-align: left; margin-bottom: 1rem; margin-left: -20px;">
           <h1 class="post-title" style="margin-bottom: 0.5rem;">
             {% if site.title == 'blank' %}
               <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
@@ -37,11 +37,13 @@ layout: default
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
         
-        <!-- Social icons under the picture -->
+        <!-- Social icons - can be positioned independently -->
         {% if page.social %}
-          <div class="social" style="margin-top: 1rem; text-align: center;">
+          <div class="social" style="margin-top: 0.5rem; text-align: left; margin-left: -20px;">
             <div class="contact-icons">{% include social.liquid %}</div>
-            <div class="contact-note">{{ site.contact_note }}</div>
+            {% if site.contact_note %}
+              <div class="contact-note" style="margin-top: 0.5rem; font-size: 0.9rem;">{{ site.contact_note }}</div>
+            {% endif %}
           </div>
         {% endif %}
       </div>
