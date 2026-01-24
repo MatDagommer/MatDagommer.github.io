@@ -25,7 +25,7 @@ social: true # includes social icons at the bottom of the page
 
 I'm Matthieu, a Machine Learning scientist at [AbbVie](https://www.abbvie.com/). I build models and software to accelerate the drug discovery pipeline, helping chemists discover better drugs faster.
 
-I'm motivated by real, measurable impact and by building tools that people actually enjoy using. 
+I'm motivated by real, measurable business impact and by building tools that people actually enjoy using. 
 
 
 My Python programming journey began in 2020 with geothermal simulation work at [Geosophy.io](https://geosophy.io/en), where I discovered the satisfication of replicating real-world phenomena using first principles and a bit of compute. Shortly thereafter, I began to self-teach myself data science and machine learning during an internship at [EssilorLuxottica](https://www.essilorluxottica.com/en/), and later gained hands-on exposure to deep learning during the summer of 2022 at the [Athinoula A. Martinos Center for Biomedical Imaging](https://www.martinos.org/).
@@ -34,7 +34,7 @@ My Python programming journey began in 2020 with geothermal simulation work at [
 In 2023, I joined [Moderna](https://www.modernatx.com/en-US) as a data science intern in cheminformatics, which became my entry point into the pharma industry. There, I learned how embracing software development and coding best practices could dramatically scale the impact of data science work inside a large organization. 
 
 
-I studied at [ESPCI Paris](https://www.espci.psl.eu/en/), an engineering school that sharpened my scientific thinking and gave me a deep foundation in both theoretical and applied physics and chemistry—skills I still rely on today.
+I studied engineering at [ESPCI Paris](https://www.espci.psl.eu/en/) and [Columbia University](https://www.engineering.columbia.edu/). My education gave me a solid foundation in both theoretical and applied physics and chemistry—knowledge that helps me approach problems systematically and keeps me learning every day.
 
 
 If you'd like to get in touch, feel free to send me a message via [Formspree](/contact/)!
